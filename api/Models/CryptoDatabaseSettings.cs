@@ -7,6 +7,4 @@ public class CryptoDatabaseSettings
     public string DatabaseName { get; set; } = null!;
 
     public string CoinCollectionName { get; set; } = null!;
-
-    public string PriceCollectionName { get; set; } = null!;
 }

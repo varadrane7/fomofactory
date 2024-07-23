@@ -9,17 +9,20 @@ public class CoinEntry
     [BsonRepresentation(BsonType.ObjectId)]
     public string Id { get; set; } = string.Empty;
 
-    [BsonElement("name")]
-    public string Name { get; set; } = string.Empty;
-
     [BsonElement("code")]
     public string Code { get; set; } = string.Empty;
+
+    [BsonElement("rate")]
+    public double rate { get; set; } = 0;
 
     [BsonElement("delta")]
     public DeltaEntry Delta = new();
 
     [BsonElement("rank")]
     public Int32 Rank { get; set; }
+
+    [BsonElement("time")]
+    public DateTime Time { get; set; } = DateTime.Now;
 
 }
 

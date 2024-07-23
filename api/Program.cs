@@ -19,12 +19,12 @@ builder.Services.AddSingleton<CryptoService>();
 // Add HttpClient for LiveCoinWatch
 builder.Services.AddHttpClient("livecoinwatch", client =>
 {
-    string baseUrl = config.GetSection("LiveCoinWatch:URL").ToString()!;
+    string baseUrl = config["LiveCoinWatch:URL"]!.ToString();
     client.BaseAddress = new Uri(baseUrl);
 
     client.DefaultRequestHeaders.Add("Accept", "application/json");
     client.DefaultRequestHeaders.Add("User-Agent", "FomoFactory-TA-api/1.0");
-    client.DefaultRequestHeaders.Add("X-API-KEY", config.GetSection("LiveCoinWatch:APIKey").Value!);
+    client.DefaultRequestHeaders.Add("X-API-KEY", config["LiveCoinWatch:APIKey"]!.ToString());
 });
 
 builder.Services.AddHostedService<PushToMongoService>();
