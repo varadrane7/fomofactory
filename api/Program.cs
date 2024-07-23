@@ -40,4 +40,14 @@ if (app.Environment.IsDevelopment())
 
 //app.UseHttpsRedirection();
 
+app.MapGet("/coins", (CryptoService crypto) =>
+{
+    return Results.Ok(crypto.GetCoinsList());
+}).WithOpenApi();
+
+app.MapGet("/coins/{coinCode}", async (CryptoService crypto, string coinCode) =>
+{
+    return Results.Ok(await crypto.GetRecentPrices(coinCode));
+}).WithOpenApi();
+
 app.Run();
