@@ -8,8 +8,8 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["./api.csproj", "api/"]
 RUN dotnet restore "api/api.csproj"
-COPY . .
 WORKDIR "/src/api"
+COPY api/ .
 RUN dotnet build "api.csproj" -c Release -o /app/build
 
 FROM build AS publish
