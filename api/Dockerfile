@@ -6,7 +6,7 @@ RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /
 USER appuser
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["api/api.csproj", "api/"]
+COPY ["./api.csproj", "api/"]
 RUN dotnet restore "api/api.csproj"
 COPY . .
 WORKDIR "/src/api"
