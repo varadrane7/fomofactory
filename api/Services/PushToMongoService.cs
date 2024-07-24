@@ -20,7 +20,7 @@ public class PushToMongoService : BackgroundService
         {
             await FetchDataAndStoreInDB();
             await DeleteOldEntries();
-            await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
+            await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
         }
     }
 
